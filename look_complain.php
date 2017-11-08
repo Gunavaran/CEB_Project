@@ -9,10 +9,6 @@ if (logged_in()){
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <?php
-                        $query = "SELECT * FROM complain";
-                    ?>
-
                 </div>
                 <?php
                     include 'connectDB.php';
@@ -27,8 +23,8 @@ if (logged_in()){
                             <table class='table table-striped table-bordered table-hover'>
                               <col width='30'>
                               <col width='10'>
-                              <col width='100'>
-                              <col width='10'>
+                              <col width='150'>
+                              <col width='500'>
                                 <thead>
                                     <tr>
                                         <th>#</th>

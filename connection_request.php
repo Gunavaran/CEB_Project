@@ -6,6 +6,7 @@ if (logged_in()){
     include 'topbar.php';
 ?>
 
+    <!-- /. NAV SIDE  -->
     <div id="page-wrapper" >
         <div id="page-inner">
             <div class="row">
