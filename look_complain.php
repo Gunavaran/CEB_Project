@@ -66,7 +66,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                 </div>
                 <?php
                     include 'connectDB.php';
-                    $result = mysqli_query($link, "SELECT * FROM complain ORDER BY report_id DESC");
+                    $result = mysqli_query($link, "SELECT * FROM complain WHERE status = 'pending' ORDER BY report_id DESC");
                 echo "
                 <div class='panel panel-default'>
                     <div class='panel-heading'>
@@ -95,6 +95,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                                 echo "<td><font size = '2'>" . $row['user_id'] . "</font></td>";
                                 echo "<td><font size = '2'>" . $row['date'] . "</font></td>";
                                 echo "<td><font size = '2'>" . $row['message'] . "</font></td>";
+                                echo "<td><a href='read_complaint.php?id=".$row['report_id']."'><button><font size = '2'>Read</font></button></a></td>";
                                 echo "</tr>";
                                 }
                                 echo "
