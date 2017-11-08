@@ -5,7 +5,6 @@ include "connectDB.php";
 if ($_SESSION['user_type'] == 'customer'){
 ?>
 
-
 <li>
     <a  href="#"><i class="fa fa-dashboard fa-3x"></i> Account Settings</a>
 </li>
@@ -52,6 +51,17 @@ if ($_SESSION['user_type'] == 'customer'){
 
     <li>
         <a href="add_user.php"><i class="fa fa-dashboard fa-3x"></i> Add Staff</a>
+        <ul class="nav nav-second-level">
+            <li>
+                <a href="meter_reader.php">Meter Reader</a>
+            </li>
+            <li>
+                <a href="customer.php">Customer</a>
+            </li>
+            <li>
+                <a href="admin.php">Admin</a>
+            </li>
+        </ul>
     </li>
 
     <li>
