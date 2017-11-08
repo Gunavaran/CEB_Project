@@ -5,6 +5,12 @@
 * Date: 10/30/2017
 * Time: 10:24 PM
 */
+<?php
+include "connectDB.php";
+include "log_in/core.php";
+
+if (logged_in()){
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -35,7 +41,7 @@
         <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="log_in/logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
     </nav>
     <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
@@ -60,12 +66,6 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                 <div class="col-md-12">
                     <form class="form-horizontal" role="form" style="margin-left: 20px; margin-right: 30px">
 
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label">User_ID</label>
-                            <div class="col-10">
-                                <input type="text" class="form-control" placeholder="" name="user_id">
-                            </div>
-                        </div>
                         <div class="form-group row">
                             <label class="col-2 col-form-label">First Name</label>
                             <div class="col-10">
@@ -131,6 +131,27 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
 
                         <button type="submit" class="btn btn-primary" style="margin-right: 10px; float: right">Submit</button>
                     </form>
+                    <?php
+                        //include 'connectDB.php';
+                        if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['resid_no']) && isset($_POST['street']) && isset($_POST['city']) && isset($_POST['nic']) && isset($_POST['email']) && isset($_POST['user_name']) && isset($_POST['password']) && isset($_POST['office_no'])){
+                            if (!empty($_POST['user_id']) && !empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['resid_no']) && !empty($_POST['street']) && !empty($_POST['city']) && !empty($_POST['nic']) && !empty($_POST['email']) && !empty($_POST['user_name']) && !empty($_POST['password']) && !empty($_POST['office_no'])){
+
+                                $first_name = mysqli_real_escape_string($link, $_POST['first_name']);
+                                $last_name = mysqli_real_escape_string($link, $_POST['last_name']);
+                                $resid_no = mysqli_real_escape_string($link, $_POST['resid_no']);
+                                $street = mysqli_real_escape_string($link, $_POST['street']);
+                                $city = mysqli_real_escape_string($link, $_POST['city']);
+                                $nic = mysqli_real_escape_string($link, $_POST['nic']);
+                                $email = mysqli_real_escape_string($link, $_POST['email']);
+                                $user_name = mysqli_real_escape_string($link, $_POST['user_name']);
+                                $password = mysqli_real_escape_string($link, $_POST['password']);
+                                $office_no = mysqli_real_escape_string($link, $_POST['office_no']);
+                                $query = "INSERT INTO reading VALUES ('$first_name', '$last_name', '$resid_no', '$street', '$city', '$nic', '$email', '$user_name', '$password', '$office_no')";
+                                $query_run = mysqli_query($link, $query);
+
+                            }
+                        }
+                    ?>
 
                 </div>
             </div>
@@ -156,3 +177,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
 
 </body>
 </html>
+<?php
+} else {
+    include "log_in/log_in_page.php";
+}
+?>
