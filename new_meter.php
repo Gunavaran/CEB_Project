@@ -1,10 +1,10 @@
+<?php
+include "connectDB.php";
+include "log_in/core.php";
 
-/**
-* Created by PhpStorm.
-* User: Start
-* Date: 10/30/2017
-* Time: 10:24 PM
-*/
+if (logged_in()){
+    include 'topbar.php';
+    ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -130,3 +130,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
 
 </body>
 </html>
+<?php
+} else {
+    include "log_in/log_in_page.php";
+}

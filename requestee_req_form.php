@@ -3,6 +3,7 @@ include "connectDB.php";
 include "log_in/core.php";
 
 if (!logged_in()){
+    include 'topbar.php';
     ?>
 
     <!DOCTYPE html>
