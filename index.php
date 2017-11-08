@@ -29,10 +29,7 @@ if (logged_in()){
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <?php
-
-                ?>
-                <a class="navbar-brand" href="index.php">Binary admin</a>
+                <a class="navbar-brand" href="index.html">Binary admin</a>
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
@@ -48,9 +45,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="log_in/logout.php" 
 					</li>
 
                     <?php
-                    include 'sidebar.php';
-
-                   
+                    include "sidebar.php";
                     ?>
 
                 </ul>
@@ -64,8 +59,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="log_in/logout.php" 
                 <div class="row">
                     <div class="col-md-12">
                      <h2>Blank Page</h2>
-                        <h5>Welcome <?php $username = getUserDetail('username');
-                        echo $username;?> , Love to see you back. </h5>
+                        <h5>Welcome <?php echo $_SESSION['user_id'] ?> , Love to see you back. </h5>
 
                     </div>
                 </div>

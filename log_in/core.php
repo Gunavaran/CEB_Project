@@ -19,9 +19,9 @@ function logged_in(){
 }
 
 function getUserDetail($data){
-    include 'connectDB.php';
-    $user_id= $_SESSION['user_id'];
-    $query_user_detail = "SELECT $data FROM customer WHERE  user_id='$user_id'";
+    require '../connectDB.php';
+    $username= $_SESSION['username'];
+    $query_user_detail = "SELECT $data FROM customer WHERE  user_id='$username'";
     if ($query_user_run = mysqli_query($link,$query_user_detail)){
         $user_detail_row = mysqli_fetch_assoc($query_user_run);
         return $user_detail_row[$data];
