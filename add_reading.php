@@ -60,7 +60,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-horizontal" role="form" style="margin-left: 20px; margin-right: 30px">
+                    <form class="form-horizontal" role="form" style="margin-left: 20px; margin-right: 30px" action="add_reading.php" method="post">
 
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Meter-ID</label>
@@ -79,12 +79,25 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Reading</label>
                             <div class="col-10">
-                                <input type="text" class="form-control" placeholder="put number of digits">
+                                <input type="text" class="form-control" placeholder="put number of digits" name="reading">
                             </div>
                         </div>
                         <input type="submit" value="Submit" class="btn btn-primary" style="margin-right: 10px; float: right">
                     </form>
+                    <?php
+                        include 'connectDB.php';
+                        if (isset($_POST['meter_id']) && isset($_POST['date']) && isset($_POST['reading'])){
+                            if (!empty($_POST['meter_id']) && !empty($_POST['date']) && !empty($_POST['reading'])){
 
+                                $meter_id = mysqli_real_escape_string($link, $_POST['meter_id']);
+                                $date = mysqli_real_escape_string($link, $_POST['date']);
+                                $reading = mysqli_real_escape_string($link, $_POST['reading']);
+                                $query = "INSERT INTO reading VALUES ('$meter_id', '$date', '$reading')";
+                                $query_run = mysqli_query($link, $query);
+
+                            }
+                        }
+                    ?>
 
 
 

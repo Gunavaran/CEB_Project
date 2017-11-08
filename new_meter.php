@@ -64,20 +64,48 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Meter_ID</label>
                             <div class="col-10">
-                                <input type="text" class="form-control" placeholder="" name="meter_ID">
+                                <input type="text" class="form-control" placeholder="" name="meter_id">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-2 col-form-label">Address</label>
+                            <label class="col-2 col-form-label">Resident no</label>
                             <div class="col-10">
-                                <input type="text" class="form-control" placeholder="" name="address">
+                                <input type="text" class="form-control" placeholder="" name="resno">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Street</label>
+                            <div class="col-10">
+                                <input type="text" class="form-control" placeholder="" name="street">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">City</label>
+                            <div class="col-10">
+                                <input type="text" class="form-control" placeholder="" name="city">
                             </div>
                         </div>
 
                         <input type="submit" value="Submit" class="btn btn-primary" style="margin-right: 10px; float: right">
                     </form>
+                    <?php
+                        include 'connectDB.php';
+                        if (isset($_POST['meter_id']) && isset($_POST['resno']) && isset($_POST['city']) && isset($_POST['street'])){
+                            if (!empty($_POST['meter_id']) && !empty($_POST['resno']) && !empty($_POST['city']) && !empty($_POST['street'])){
 
+                                $meter_id = $_POST['meter_id'];
+                                $resno = $_POST['resno'];
+                                $street = $_POST['street'];
+                                $city = $_POST['city'];
+                                $query = "INSERT INTO meter VALUES ('$meter_id', '$resno', '$street', '$city')";
+                                $query_run = mysqli_query($link, $query);
+
+                            }
+                        }
+                    ?>
                 </div>
             </div>
             <!-- /. ROW  -->
