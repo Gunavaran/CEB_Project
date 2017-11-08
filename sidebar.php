@@ -50,7 +50,7 @@ if ($_SESSION['user_type'] == 'customer'){
     </li>
 
     <li>
-        <a href="add_user.php"><i class="fa fa-dashboard fa-3x"></i> Add Staff</a>
+        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Add User <span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li>
                 <a href="meter_reader.php">Meter Reader</a>
@@ -62,10 +62,6 @@ if ($_SESSION['user_type'] == 'customer'){
                 <a href="admin.php">Admin</a>
             </li>
         </ul>
-    </li>
-
-    <li>
-        <a href="#"><i class="fa fa-dashboard fa-3x"></i> Add Customer</a>
     </li>
 
     <li>
