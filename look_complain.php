@@ -64,6 +64,47 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                     ?>
 
                 </div>
+                <?php
+                    include 'connectDB.php';
+                    $result = mysqli_query($link, "SELECT * FROM complain ORDER BY report_id DESC");
+                echo "
+                <div class='panel panel-default'>
+                    <div class='panel-heading'>
+                        <font size = '6'>Complaints</font>
+                    </div>
+                    <div class= 'panel-body'>
+                        <div class='table-responsive'>
+                            <table class='table table-striped table-bordered table-hover'>
+                              <col width='30'>
+                              <col width='10'>
+                              <col width='100'>
+                              <col width='10'>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>User id</th>
+                                        <th>Date Time</th>
+                                        <th>Complaint</th>
+                                    </tr>
+                                </thead>
+                                <tbody>";
+                                while($row = mysqli_fetch_array($result))
+                                {
+                                echo "<tr>";
+                                echo "<td><font size = '2'>" . $row['report_id'] . "</font></td>";
+                                echo "<td><font size = '2'>" . $row['user_id'] . "</font></td>";
+                                echo "<td><font size = '2'>" . $row['date'] . "</font></td>";
+                                echo "<td><font size = '2'>" . $row['message'] . "</font></td>";
+                                echo "</tr>";
+                                }
+                                echo "
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>";
+                ?>
+
             </div>
             <!-- /. ROW  -->
             <hr />

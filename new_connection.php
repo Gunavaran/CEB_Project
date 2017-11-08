@@ -95,7 +95,6 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                                 $user_id = $_POST['user_id'];
                                 $meter_id = $_POST['meter_id'];
                                 $connec_type = $_POST['connec_type'];
-                                echo $connec_id.$user_id.$meter_id.$connec_type;
                                 $query = "INSERT INTO connection VALUES ('$connec_id', '$user_id', '$meter_id', '$connec_type')";
                                 $query_run = mysqli_query($link, $query);
 
