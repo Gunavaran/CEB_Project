@@ -1,4 +1,9 @@
+<?php
+include "connectDB.php";
+include "log_in/core.php";
 
+if (logged_in()){
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -29,7 +34,7 @@
         <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="log_in/logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
     </nav>
     <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
@@ -71,7 +76,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                     </form>
 
                     <?php
-                        include 'connectDB.php';
+                        //include 'connectDB.php';
                         if (isset($_POST['type_name']) && isset($_POST['description'])){
                             if (!empty($_POST['type_name']) && !empty($_POST['description'])){
 
@@ -108,3 +113,9 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
 
 </body>
 </html>
+
+    <?php
+} else {
+    include "log_in/log_in_page.php";
+}
+?>

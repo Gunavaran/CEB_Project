@@ -6,6 +6,9 @@
 * Time: 10:24 PM
 */
 <!DOCTYPE html>
+<?php
+include "log_in/core.php";
+ ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -59,13 +62,24 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-horizontal" role="form" style="margin-left: 20px; margin-right: 30px">
+                    <form class="form-horizontal" role="form" style="margin-left: 20px; margin-right: 30px" action="file_complaint.php" method="post">
                         <div class="form-group">
                             <label><h3>Complaint</h3></label>
                             <textarea class="form-control" rows="10" placeholder="Type your complain here...." name="complaint"></textarea>
                         </div>
+                        <input type="submit" value="Submit" class="btn btn-primary" style="margin-right: 10px; float: right">
                     </form>
-
+                    <?php
+                        include 'connectDB.php';
+                        if (isset($_POST['complaint'])){
+                            if (!empty($_POST['complaint'])){
+                                $user_id = $_SESSION['user_id'];
+                                $complaint = mysqli_real_escape_string($link, $_POST['complaint']);
+                                $query = "INSERT INTO complain(user_id, message, status) VALUES ('$user_id', '$complaint', 'pending')";
+                                $query_run = mysqli_query($link, $query);
+                            }
+                        }
+                    ?>
                 </div>
             </div>
             <!-- /. ROW  -->

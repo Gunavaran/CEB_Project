@@ -59,7 +59,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-horizontal" role="form" style="margin-left: 20px; margin-right: 30px">
+                    <form class="form-horizontal" role="form" style="margin-left: 20px; margin-right: 30px" action="new_connection.php" method="post">
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Connection_ID</label>
                             <div class="col-10">
@@ -84,11 +84,23 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                                 <input type="text" class="form-control" placeholder="" name="connec_type">
                             </div>
                         </div>
-
-
-
+                        <input type="submit" value="Submit" class="btn btn-primary" style="margin-right: 10px; float: right">
                     </form>
+                    <?php
+                        include 'connectDB.php';
+                        if (isset($_POST['connec_id']) && isset($_POST['user_id']) && isset($_POST['meter_id']) && isset($_POST['connec_type'])){
+                            if (!empty($_POST['connec_id']) && !empty($_POST['user_id']) && !empty($_POST['meter_id']) && !empty($_POST['connec_type'])){
 
+                                $connec_id = $_POST['connec_id'];
+                                $user_id = $_POST['user_id'];
+                                $meter_id = $_POST['meter_id'];
+                                $connec_type = $_POST['connec_type'];
+                                $query = "INSERT INTO connection VALUES ('$connec_id', '$user_id', '$meter_id', '$connec_type')";
+                                $query_run = mysqli_query($link, $query);
+
+                            }
+                        }
+                    ?>
                 </div>
             </div>
             <!-- /. ROW  -->
