@@ -59,8 +59,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Blank Page</h2>
-                    <h5>Welcome Jhon Deo , Love to see you back. </h5>
+
 
                 </div>
             </div>

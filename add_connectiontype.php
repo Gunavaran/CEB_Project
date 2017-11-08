@@ -74,6 +74,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                         include 'connectDB.php';
                         if (isset($_POST['type_name']) && isset($_POST['description'])){
                             if (!empty($_POST['type_name']) && !empty($_POST['description'])){
+
                                 $type_name = $_POST['type_name'];
                                 $description = $_POST['description'];
                                 $query = "INSERT INTO connection_type VALUES ('$type_name', '$description')";

@@ -1,10 +1,9 @@
+<?php
+include "connectDB.php";
+include "log_in/core.php";
 
-/**
- * Created by PhpStorm.
- * User: Start
- * Date: 10/30/2017
- * Time: 10:24 PM
- */
+if (logged_in()){
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -35,7 +34,7 @@
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="log_in/logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -60,7 +59,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                 <div class="row">
                     <div class="col-md-12">
                      <h2>Blank Page</h2>
-                        <h5>Welcome Jhon Deo , Love to see you back. </h5>
+                        <h5>Welcome <?php echo $_SESSION['user_id'] ?> , Love to see you back. </h5>
 
                     </div>
                 </div>
@@ -86,3 +85,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
 
 </body>
 </html>
+<?php
+} else {
+    include "log_in/log_in_page.php";
+}
