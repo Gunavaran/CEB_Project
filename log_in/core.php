@@ -5,6 +5,7 @@
  * Date: 11/7/2017
  * Time: 1:06 AM
  */
+include 'connectDB.php';
 
 ob_start();
 session_start();
@@ -19,7 +20,7 @@ function logged_in(){
 }
 
 function getUserDetail($data){
-    require '../connectDB.php';
+    //require '../connectDB.php';
     $username= $_SESSION['username'];
     $query_user_detail = "SELECT $data FROM customer WHERE  user_id='$username'";
     if ($query_user_run = mysqli_query($link,$query_user_detail)){

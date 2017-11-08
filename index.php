@@ -59,7 +59,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="log_in/logout.php" 
                 <div class="row">
                     <div class="col-md-12">
                      <h2>Blank Page</h2>
-                        <h5>Welcome <?php echo $_SESSION['user_id'] ?> , Love to see you back. </h5>
+                        <h5>Welcome <?php echo $_SESSION['user_id'] ?> , It's good to see you again. </h5>
 
                     </div>
                 </div>
@@ -89,3 +89,4 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="log_in/logout.php" 
 } else {
     include "log_in/log_in_page.php";
 }
+?>
