@@ -9,10 +9,6 @@ if (logged_in()){
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <?php
-                        $query = "SELECT * FROM complain";
-                    ?>
-
                 </div>
                 <?php
                     include 'connectDB.php';
