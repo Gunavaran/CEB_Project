@@ -152,9 +152,14 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="log_in/logout.php" 
                                 $office_no = mysqli_real_escape_string($link, $_POST['office_no']);
                                 $vehicle_id = mysqli_real_escape_string($link, $_POST['vehicle_id']);
                                 $query = "INSERT INTO staff(first_name, last_name, resident_no, street, city, NIC, email, username, password, office_no) VALUES ('$first_name', '$last_name', '$resid_no', '$street', '$city', '$nic', '$email', '$user_name', '$password', '$office_no')";
-                                $userid = "SELECT max(user_id) FROM staff";
-                                $query1 = "INSERT INTO meter_reader(vehicle_id) VALUES ('$vehicle_id') ";
+                                $getuserid = "SELECT max(user_id) AS user_id FROM staff";
                                 $query_run = mysqli_query($link, $query);
+                                if($query_run3 = mysqli_query($link, $getuserid)){
+                                    $query_row = mysqli_fetch_assoc($query_run3);
+                                    $_SESSION['user_id'] = $query_row['user_id'];
+                                }
+                                $userid = $_SESSION['user_id'];
+                                $query1 = "INSERT INTO meter_reader(user_id, vehicle_id) VALUES ('$userid', '$vehicle_id') ";
                                 $query_run2 = mysqli_query($link, $query1);
 
                             }
