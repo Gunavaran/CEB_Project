@@ -64,7 +64,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="log_in/logout.php" 
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <form class="form-horizontal" method="post" role="form" style="margin-left: 20px; margin-right: 30px" action="meter_reader.php">
+                        <form class="form-horizontal" method="post" role="form" style="margin-left: 20px; margin-right: 30px" action="admin.php">
 
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">First Name</label>
@@ -128,9 +128,15 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="log_in/logout.php" 
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-2 col-form-label">Vehicle No.</label>
+                                <label class="col-2 col-form-label">Intercom</label>
                                 <div class="col-10">
-                                    <input type="text" class="form-control" placeholder="" name="vehicle_id">
+                                    <input type="text" class="form-control" placeholder="" name="intercom">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">Room No.</label>
+                                <div class="col-10">
+                                    <input type="text" class="form-control" placeholder="" name="room_no">
                                 </div>
                             </div>
 
@@ -138,8 +144,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="log_in/logout.php" 
                         </form>
                         <?php
                         //include 'connectDB.php';
-                        if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['resid_no']) && isset($_POST['street']) && isset($_POST['city']) && isset($_POST['nic']) && isset($_POST['email']) && isset($_POST['user_name']) && isset($_POST['password']) && isset($_POST['office_no']) && isset($_POST['vehicle_id'])){
-                            if (!empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['resid_no']) && !empty($_POST['street']) && !empty($_POST['city']) && !empty($_POST['nic']) && !empty($_POST['email']) && !empty($_POST['user_name']) && !empty($_POST['password']) && !empty($_POST['office_no']) && !empty($_POST['vehicle_id'])){
+                        if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['resid_no']) && isset($_POST['street']) && isset($_POST['city']) && isset($_POST['nic']) && isset($_POST['email']) && isset($_POST['user_name']) && isset($_POST['password']) && isset($_POST['office_no']) && isset($_POST['intercom']) && isset($_POST['room_no'])){
+                            if (!empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['resid_no']) && !empty($_POST['street']) && !empty($_POST['city']) && !empty($_POST['nic']) && !empty($_POST['email']) && !empty($_POST['user_name']) && !empty($_POST['password']) && !empty($_POST['office_no']) && !empty($_POST['intercom']) && !empty($_POST['room_no'])){
                                 $first_name = mysqli_real_escape_string($link, $_POST['first_name']);
                                 $last_name = mysqli_real_escape_string($link, $_POST['last_name']);
                                 $resid_no = mysqli_real_escape_string($link, $_POST['resid_no']);
@@ -150,10 +156,17 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="log_in/logout.php" 
                                 $user_name = mysqli_real_escape_string($link, $_POST['user_name']);
                                 $password = mysqli_real_escape_string($link, $_POST['password']);
                                 $office_no = mysqli_real_escape_string($link, $_POST['office_no']);
-                                $vehicle_id = mysqli_real_escape_string($link, $_POST['vehicle_id']);
+                                $intercom = mysqli_real_escape_string($link, $_POST['intercom']);
+                                $room_no = mysqli_real_escape_string($link, $_POST['room_no']);
                                 $query = "INSERT INTO staff(first_name, last_name, resident_no, street, city, NIC, email, username, password, office_no) VALUES ('$first_name', '$last_name', '$resid_no', '$street', '$city', '$nic', '$email', '$user_name', '$password', '$office_no')";
-                                $query1 = "INSERT INTO meter_reader(vehicle_id) VALUES ('$vehicle_id') ";
+                                $getuserid = "SELECT max(user_id) AS user_id FROM staff";
                                 $query_run = mysqli_query($link, $query);
+                                if($query_run3 = mysqli_query($link, $getuserid)){
+                                    $query_row = mysqli_fetch_assoc($query_run3);
+                                    $_SESSION['user_id'] = $query_row['user_id'];
+                                }
+                                $userid = $_SESSION['user_id'];
+                                $query1 = "INSERT INTO admin(user_id, intercom, room_no) VALUES ('$userid', '$intercom', '$room_no')";
                                 $query_run2 = mysqli_query($link, $query1);
 
                             }
