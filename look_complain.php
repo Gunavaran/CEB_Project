@@ -77,8 +77,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="" class="btn btn-da
                             <table class='table table-striped table-bordered table-hover'>
                               <col width='30'>
                               <col width='10'>
-                              <col width='100'>
-                              <col width='10'>
+                              <col width='150'>
+                              <col width='500'>
                                 <thead>
                                     <tr>
                                         <th>#</th>

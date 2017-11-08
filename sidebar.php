@@ -37,7 +37,7 @@ if ($_SESSION['user_type'] == 'customer'){
 </li>
 
 <li>
-    <a  href=""><i class="fa fa-dashboard fa-3x"></i> Rates </a>
+    <a  href=""><i class="fa fa-dashboard fa-3x"></i>View Rates </a>
 </li>
 
 
@@ -72,7 +72,7 @@ if ($_SESSION['user_type'] == 'customer'){
         <a href="#"><i class="fa fa-sitemap fa-3x"></i> Connection<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li>
-                <a href="#">Connection Requests</a>
+                <a href="view_connection_request.php">Connection Requests</a>
             </li>
             <li>
                 <a href="add_connectiontype.php">Add Connection Type</a>
@@ -90,13 +90,13 @@ if ($_SESSION['user_type'] == 'customer'){
     </li>
 
     <li>
-        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Rate<span class="fa arrow"></span></a>
+        <a href="view_range_rate.php"><i class="fa fa-sitemap fa-3x"></i>Range & Rate<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li>
-                <a href="look_complain.php">Range</a>
+                <a href="add_range.php">Add Range</a>
             </li>
             <li>
-                <a href="file_complaint.php">Rate</a>
+                <a href="add_rate.php">Add Rate</a>
             </li>
         </ul>
     </li>
