@@ -26,6 +26,7 @@ if (logged_in()){
                               <col width='10'>
                               <col width='150'>
                               <col width='500'>
+                              <col width='5'>
                                 <thead>
                                     <tr>
                                         <th>#</th>
