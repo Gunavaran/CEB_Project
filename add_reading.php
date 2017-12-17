@@ -67,7 +67,7 @@ if (logged_in()){
                                     $bill = $bill + (($end_vol - $start_vol) * $rate);
                                     $reading = $reading - ($end_vol - $start_vol);
                                   } else {
-                                    $bill = $bill + ((($end_vol - $start_vol) - $reading) * $rate);
+                                    $bill = $bill + (($reading) * $rate);
                                     $flag = 1;
                                   }
                                 }
