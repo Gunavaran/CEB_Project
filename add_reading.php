@@ -34,16 +34,53 @@ if (logged_in()){
                         <input type="submit" value="Submit" class="btn btn-primary" style="margin-right: 10px; float: right">
                     </form>
                     <?php
-                        include 'connectDB.php';
-                        if (isset($_POST['meter_id']) && isset($_POST['date']) && isset($_POST['reading'])){
-                            if (!empty($_POST['meter_id']) && !empty($_POST['date']) && !empty($_POST['reading'])){
+                        if (isset($_POST['meter_id']) && isset($_POST['date']) && isset($_POST['reading'])) {
+                            if (!empty($_POST['meter_id']) && !empty($_POST['date']) && !empty($_POST['reading'])) {
 
+                                $bill = 0;
+                                $flag = 0;
                                 $meter_id = mysqli_real_escape_string($link, $_POST['meter_id']);
                                 $date = mysqli_real_escape_string($link, $_POST['date']);
                                 $reading = mysqli_real_escape_string($link, $_POST['reading']);
-                                $query = "INSERT INTO reading VALUES ('$meter_id', '$date', '$reading')";
-                                $query_run = mysqli_query($link, $query);
+                                //billing
 
+                                $que = "SELECT * FROM connection WHERE meter_id = '".$_POST['meter_id']."';";
+                                $que_run = mysqli_query($link, $que);
+                                $que_row = mysqli_fetch_assoc($que_run);
+                                $user_id = $que_row['user_id'];
+                                $connection_id = $que_row['connection_id'];
+                                $type = $que_row['type_name'];
+
+                                $reading = (int)$reading;
+                                $que3 = "SELECT * FROM unit_range;";
+                                $que_run3 = mysqli_query($link, $que3);
+
+                                while ($que_row3 = mysqli_fetch_assoc($que_run3)){
+                                  $range_id = $que_row3['range_id'];
+                                  $start_vol = (int)$que_row3['start_volume'];
+                                  $end_vol = (int)$que_row3['end_volume'];
+                                  $que1 = "SELECT amount FROM rate WHERE type_name = '".$type."' and range_id = '".$range_id."';";
+                                  $que_run1 = mysqli_query($link, $que1);
+                                  $que_row1 = mysqli_fetch_assoc($que_run1);
+                                  $rate = $que_row1['amount'];
+                                  if ($reading > ($end_vol - $start_vol)) {
+                                    $bill = $bill + (($end_vol - $start_vol) * $rate);
+                                    $reading = $reading - ($end_vol - $start_vol);
+                                  } else {
+                                    $bill = $bill + ((($end_vol - $start_vol) - $reading) * $rate);
+                                    $flag = 1;
+                                  }
+                                }
+
+                                $read = $_POST['reading'];
+                                if ($flag and (int)$read > 0) {
+                                  $query = "INSERT INTO bill VALUES (NULL, '$date', '$read', '$bill', '$user_id', 'pending');";
+                                  $query_run = mysqli_query($link, $query);
+                                  $query = "INSERT INTO reading VALUES ('$meter_id', '$date', '$reading')";
+                                  $query_run = mysqli_query($link, $query);
+                                } else {
+                                  echo '<div class="msg">'.'Please enter valid input..!'.'</div>';
+                                }
                             }
                         }
                     ?>
