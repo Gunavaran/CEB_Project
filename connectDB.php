@@ -8,7 +8,11 @@
 
 $host = 'localhost';
 $username = 'root';
-$password = '0000';
+$password = '';
 $database = 'ceb';
 
 $link = mysqli_connect($host,$username,$password,$database) or die ("could not connect");
+/**
+ *
+ *
+ */

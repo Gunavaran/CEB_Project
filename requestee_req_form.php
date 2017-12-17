@@ -3,7 +3,6 @@ include "connectDB.php";
 include "log_in/core.php";
 
 if (!logged_in()){
-    include 'topbar.php';
     ?>
 
     <!DOCTYPE html>
@@ -22,7 +21,7 @@ if (!logged_in()){
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     </head>
     <body>
-        <form class="form-horizontal" role="form" style="margin-left: 20px; margin-right: 30px" action="requestee_req_form.php" method="post">
+        <form class="form-horizontal" role="form" style="margin-left: 300px; margin-right: 300px; margin-top: 100px" action="requestee_req_form.php" method="post">
             <div class="form-group row">
                 <label class="col-2 col-form-label">Email Address</label>
                 <div class="col-10">

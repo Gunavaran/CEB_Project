@@ -6,7 +6,7 @@ if ($_SESSION['user_type'] == 'customer'){
 ?>
 
 <li>
-    <a  href="account_settings.php"><i class="fa fa-dashboard fa-3x"></i> Account Settings</a>
+    <a  href="cus_account_setting.php"><i class="fa fa-dashboard fa-3x"></i> Account Settings</a>
 </li>
 <li>
     <a href="#"><i class="fa fa-sitemap fa-3x"></i> Connection<span class="fa arrow"></span></a>
@@ -46,7 +46,7 @@ if ($_SESSION['user_type'] == 'customer'){
 } else if ($_SESSION['user_type'] == 'admin') {
     ?>
     <li>
-        <a href="account_settings.php"><i class="fa fa-dashboard fa-3x"></i> Account Settings</a>
+        <a href="stf_account_setting.php"><i class="fa fa-dashboard fa-3x"></i> Account Settings</a>
     </li>
 
     <li>
@@ -76,7 +76,7 @@ if ($_SESSION['user_type'] == 'customer'){
         <a href="#"><i class="fa fa-sitemap fa-3x"></i> Connection<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li>
-                <a href="#">Connection Requests</a>
+                <a href="view_connection_request.php">Connection Requests</a>
             </li>
             <li>
                 <a href="add_connectiontype.php">Add Connection Type</a>
@@ -110,7 +110,7 @@ if ($_SESSION['user_type'] == 'customer'){
 
     ?>
     <li>
-        <a href="account_settings.php"><i class="fa fa-dashboard fa-3x"></i> Account Settings</a>
+        <a href="stf_account_setting.php"><i class="fa fa-dashboard fa-3x"></i> Account Settings</a>
     </li>
 
     <li>

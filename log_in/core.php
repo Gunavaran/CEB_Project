@@ -35,3 +35,4 @@ function getUserDetail($data){
         return $user_detail_row[$data];
     }
 }
+

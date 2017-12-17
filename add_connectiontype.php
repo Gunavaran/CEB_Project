@@ -33,8 +33,8 @@ if (logged_in()){
                         if (isset($_POST['type_name']) && isset($_POST['description'])){
                             if (!empty($_POST['type_name']) && !empty($_POST['description'])){
 
-                                $type_name = $_POST['type_name'];
-                                $description = $_POST['description'];
+                                $type_name = mysqli_real_escape_string($link,$_POST['type_name']);
+                                $description = mysqli_real_escape_string($link,$_POST['description']);
                                 $query = "INSERT INTO connection_type VALUES ('$type_name', '$description')";
                                 $query_run = mysqli_query($link, $query);
 

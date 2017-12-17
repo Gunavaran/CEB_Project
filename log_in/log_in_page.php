@@ -69,11 +69,12 @@
                                             if (isset($_POST['username']) && isset($_POST['password'])) {
                                                 $username1 = $_POST['username'];
                                                 $password = $_POST['password'];
+                                                $password_md5 = md5($_POST['password']);
 
                                                 if (!empty($username1) && !empty($password)) {
-                                                    $customer_query = "SELECT user_id FROM customer WHERE username = '$username1' AND password = '$password'";
-                                                    $admin_query = "SELECT user_id FROM staff natural join admin WHERE username = '$username1' AND password = '$password'";
-                                                    $reader_query = "SELECT user_id FROM  staff natural join meter_reader WHERE username = '$username1' AND password = '$password'";
+                                                    $customer_query = "SELECT user_id FROM customer WHERE username = '$username1' AND password = '$password_md5'";
+                                                    $admin_query = "SELECT user_id FROM staff natural join admin WHERE username = '$username1' AND password = '$password_md5'";
+                                                    $reader_query = "SELECT user_id FROM  staff natural join meter_reader WHERE username = '$username1' AND password = '$password_md5'";
                                                     if ($admin_query_run = mysqli_query($link, $admin_query)) {
                                                         if (mysqli_num_rows($admin_query_run) == 1) {
                                                             $query_row = mysqli_fetch_assoc($admin_query_run);

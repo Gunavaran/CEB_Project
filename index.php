@@ -10,8 +10,7 @@ if (logged_in()){
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Blank Page</h2>
-                        <h5>Welcome <?php echo getUserDetail('username') ?> , Love to see you back. </h5>
+                     <h2>Welcome <?php echo getUserDetail('username') ?> , Love to see you back.</h2>
 
                     </div>
                 </div>

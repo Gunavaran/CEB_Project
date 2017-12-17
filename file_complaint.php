@@ -1,8 +1,9 @@
 <?php
 include "connectDB.php";
 include "log_in/core.php";
-include 'topbar.php';
- ?>
+if (logged_in()){
+    include 'topbar.php';
+    ?>
 
     <div id="page-wrapper" >
         <div id="page-inner">
@@ -50,3 +51,8 @@ include 'topbar.php';
 
 </body>
 </html>
+<?php
+} else {
+    include "log_in/log_in_page.php";
+}
+?>

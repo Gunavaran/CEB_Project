@@ -70,7 +70,7 @@ if (logged_in()){
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Password</label>
                                 <div class="col-10">
-                                    <input type="text" class="form-control" placeholder="" name="password">
+                                    <input type="password" class="form-control" placeholder="" name="password">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -97,8 +97,7 @@ if (logged_in()){
                                 $user_name = mysqli_real_escape_string($link, $_POST['user_name']);
                                 $password = mysqli_real_escape_string($link, $_POST['password']);
                                 $rating = mysqli_real_escape_string($link, $_POST['rating']);
-                                echo $rating;
-                                $query = "INSERT INTO customer(first_name, last_name, resident_no, street, city, NIC, email, username, password, rating) VALUES ('$first_name', '$last_name', '$resid_no', '$street', '$city', '$nic', '$email', '$user_name', '$password', '$rating')";
+                                $query = "INSERT INTO customer(first_name, last_name, resident_no, street, city, NIC, email, username, password, rating) VALUES ('$first_name', '$last_name', '$resid_no', '$street', '$city', '$nic', '$email', '$user_name', md5('$password'), '$rating')";
                                 $query_run = mysqli_query($link, $query);
 
                             }

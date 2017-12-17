@@ -70,7 +70,7 @@ if (logged_in()){
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Password</label>
                                 <div class="col-10">
-                                    <input type="text" class="form-control" placeholder="" name="password">
+                                    <input type="password" class="form-control" placeholder="" name="password">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -103,16 +103,17 @@ if (logged_in()){
                                 $password = mysqli_real_escape_string($link, $_POST['password']);
                                 $office_no = mysqli_real_escape_string($link, $_POST['office_no']);
                                 $vehicle_id = mysqli_real_escape_string($link, $_POST['vehicle_id']);
-                                $query = "INSERT INTO staff(first_name, last_name, resident_no, street, city, NIC, email, username, password, office_no) VALUES ('$first_name', '$last_name', '$resid_no', '$street', '$city', '$nic', '$email', '$user_name', '$password', '$office_no')";
+                                $query = "INSERT INTO staff(first_name, last_name, resident_no, street, city, NIC, email, username, password, office_no) VALUES ('$first_name', '$last_name', '$resid_no', '$street', '$city', '$nic', '$email', '$user_name', md5('$password'), '$office_no')";
                                 $getuserid = "SELECT max(user_id) AS user_id FROM staff";
                                 $query_run = mysqli_query($link, $query);
                                 if($query_run3 = mysqli_query($link, $getuserid)){
                                     $query_row = mysqli_fetch_assoc($query_run3);
-                                    $_SESSION['user_id'] = $query_row['user_id'];
+                                    $userid = $query_row['user_id'];
+                                    $query1 = "INSERT INTO meter_reader(user_id, vehicle_id) VALUES ('$userid', '$vehicle_id') ";
+                                    $query_run2 = mysqli_query($link, $query1);
                                 }
-                                $userid = $_SESSION['user_id'];
-                                $query1 = "INSERT INTO meter_reader(user_id, vehicle_id) VALUES ('$userid', '$vehicle_id') ";
-                                $query_run2 = mysqli_query($link, $query1);
+
+
 
                             }
                         }
