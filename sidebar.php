@@ -19,7 +19,7 @@ if ($_SESSION['user_type'] == 'customer'){
             <a href="#">Current Connection</a>
         </li>
         <li>
-            <a href="#">View Connection Details</a>
+            <a href="">View Connection Details</a>
         </li>
 
     </ul>
@@ -38,7 +38,8 @@ if ($_SESSION['user_type'] == 'customer'){
 </li>
 
 <li>
-    <a  href=""><i class="fa fa-dashboard fa-3x"></i> Rates </a>
+    <a  href="customer_rate.php"><i class="fa fa-dashboard fa-3x"></i> Rates </a>
+
 </li>
 
 
@@ -50,7 +51,7 @@ if ($_SESSION['user_type'] == 'customer'){
         <a href="stf_account_setting.php"><i class="fa fa-dashboard fa-3x"></i> Account Settings</a>
     </li>
 
-    <li>
+    <li>view_conn_details.php
         <a href="#"><i class="fa fa-dashboard fa-3x"></i> Send Notice</a>
     </li>
 
@@ -95,15 +96,7 @@ if ($_SESSION['user_type'] == 'customer'){
     </li>
 
     <li>
-        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Rate<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-            <li>
-                <a href="look_complain.php">Range</a>
-            </li>
-            <li>
-                <a href="file_complaint.php">Rate</a>
-            </li>
-        </ul>
+        <a href="admin_rate.php"><i class="fa fa-dashboard fa-3x"></i> Rate</a>
     </li>
     <li>
         <a href="#"><i class="fa fa-sitemap fa-3x"></i> Analysis <span class="fa arrow"></span></a>
