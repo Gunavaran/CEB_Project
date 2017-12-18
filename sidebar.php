@@ -124,9 +124,6 @@ if ($_SESSION['user_type'] == 'customer'){
             <li>
                 <a href="tabular_analysis.php">Tabular</a>
             </li>
-            <li>
-                <a href="graphical_analysis.php">Analysis</a>
-            </li>
         </ul>
     </li>
 
