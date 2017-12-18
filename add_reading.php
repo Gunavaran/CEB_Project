@@ -16,7 +16,7 @@ if (logged_in()){
                     <form class="form-horizontal" role="form" style="margin-left: 20px; margin-right: 30px" action="add_reading.php" method="post">
 
                       <div class="form-group">
-                            <label>Select Example</label>
+                            <label>Select Meter ID</label>
                             <select class="form-control" name="meter_id">
                                 <?php while ($row = mysqli_fetch_assoc($que_run)) {
                                   echo "<option>".$row['meter_id']."</option>";
