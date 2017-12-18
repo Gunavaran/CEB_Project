@@ -60,7 +60,12 @@ if (!logged_in()){
             </div>
             <input type="submit" value="Request" class="btn btn-primary" style="margin-right: 10px; float: right">
         </form>
+
+
+        <a style="background-color:darksalmon;float: right; margin-right: 20px; margin-top:" href="info_for_requestee.php" class="btn btn-success" >View Connection Details</a>
+
         <a style="float: right; margin-right: 20px; margin-top:" href="index.php" class="btn btn-success" >Back</a>
+
         <hr />
         <?php
         if (isset($_POST['connection_type']) && isset($_POST['resident_no']) &&
