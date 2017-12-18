@@ -4,6 +4,10 @@ include "log_in/core.php";
 
 if (logged_in()){
     include 'topbar.php';
+
+    $que = "SELECT meter_id FROM meter;";
+    $que_run = mysqli_query($link, $que);
+
 ?>
     <div id="page-wrapper" >
         <div id="page-inner">
@@ -11,12 +15,22 @@ if (logged_in()){
                 <div class="col-md-12">
                     <form class="form-horizontal" role="form" style="margin-left: 20px; margin-right: 30px" action="add_reading.php" method="post">
 
-                        <div class="form-group row">
+                      <div class="form-group">
+                            <label>Select Example</label>
+                            <select class="form-control" name="meter_id">
+                                <?php while ($row = mysqli_fetch_assoc($que_run)) {
+                                  echo "<option>".$row['meter_id']."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+
+                        <!-- <div class="form-group row">
                             <label class="col-2 col-form-label">Meter-ID</label>
                             <div class="col-10">
                                 <input type="text" class="form-control" placeholder="Enter the meter id" name="meter_id">
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Date</label>
@@ -67,7 +81,8 @@ if (logged_in()){
                                     $bill = $bill + (($end_vol - $start_vol) * $rate);
                                     $reading = $reading - ($end_vol - $start_vol);
                                   } else {
-                                    $bill = $bill + (($reading) * $rate);
+                                    $bill = $bill + ($reading * $rate);
+                                    $reading = 0;
                                     $flag = 1;
                                   }
                                 }
