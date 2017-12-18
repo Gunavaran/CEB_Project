@@ -14,7 +14,7 @@ if (logged_in()){
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Meter-ID</label>
                             <div class="col-10">
-                                <input type="text" class="form-control" placeholder="put number of digits" name="meter_id">
+                                <input type="text" class="form-control" placeholder="Enter the meter id" name="meter_id">
                             </div>
                         </div>
 
@@ -28,7 +28,7 @@ if (logged_in()){
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Reading</label>
                             <div class="col-10">
-                                <input type="text" class="form-control" placeholder="put number of digits" name="reading">
+                                <input type="text" class="form-control" placeholder="Enter the reading" name="reading">
                             </div>
                         </div>
                         <input type="submit" value="Submit" class="btn btn-primary" style="margin-right: 10px; float: right">
@@ -81,6 +81,8 @@ if (logged_in()){
                                 } else {
                                   echo '<div class="msg">'.'Please enter valid input..!'.'</div>';
                                 }
+                            } else {
+                              echo '<div class="msg">'.'Please enter valid input..!'.'</div>';
                             }
                         }
                     ?>
