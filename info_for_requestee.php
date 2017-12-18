@@ -29,7 +29,6 @@ if (!logged_in()){
             </div>
             <?php
             $result = mysqli_query($link, "SELECT * FROM rate ");
-            $result2 = mysqli_query($link, "SELECT * FROM unit_range ");
             echo "
                         <div class='panel-heading'>
                             <font size = '6'>Connection Details</font>
@@ -37,7 +36,7 @@ if (!logged_in()){
                         <div class= 'panel-body'>
                             <div class='table-responsive'>
                                 <table class='table table-striped table-bordered table-hover'>
-                                  
+
                                   <col width='10'>
                                   <col width='30'>
                                   <col width='30'>
@@ -55,7 +54,7 @@ if (!logged_in()){
                                     <tbody>";
             while ($que_row = mysqli_fetch_assoc($result)) {
                 $range_id = $que_row['range_id'];
-                $result2 = mysqli_query($link, "SELECT * FROM unit_range WHERE range_id = $range_id ");
+                $result2 = mysqli_query($link, "SELECT * FROM unit_range WHERE range_id = '$range_id' ");
                 $que_row1 = mysqli_fetch_assoc($result2);
                 echo "<tr>";
                 echo "<td><font size = '2'>" . $que_row['type_name'] . "</font></td>";

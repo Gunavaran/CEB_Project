@@ -54,6 +54,10 @@ if ($_SESSION['user_type'] == 'customer'){
     </li>
 
     <li>
+        <a href="admin_view_bill.php"><i class="fa fa-dashboard fa-3x"></i> Bill Payment</a>
+    </li>
+
+    <li>
         <a href="#"><i class="fa fa-dashboard fa-3x"></i> Send Notice</a>
 
     <li>
