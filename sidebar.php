@@ -49,7 +49,20 @@ if ($_SESSION['user_type'] == 'customer'){
     <li>
         <a href="stf_account_setting.php"><i class="fa fa-dashboard fa-3x"></i> Account Settings</a>
     </li>
-
+    <li>
+        <a href="#"><i class="fa fa-sitemap fa-3x"></i> View Details<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li>
+                <a href="view_meter_details.php">Meter Details</a>
+            </li>
+            <li>
+                <a href="view_customer_details.php">Customer Details</a>
+            </li>
+            <li>
+                <a href="view_staff_details.php">Staff Details</a>
+            </li>
+        </ul>
+    </li>
     <li>
         <a href="#"><i class="fa fa-dashboard fa-3x"></i> Send Notice</a>
     </li>
