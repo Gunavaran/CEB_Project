@@ -60,6 +60,8 @@ if (!logged_in()){
             </div>
             <input type="submit" value="Request" class="btn btn-primary" style="margin-right: 10px; float: right">
         </form>
+        <a style="float: right; margin-right: 20px; margin-top:" href="log_in/log_in_page.php" class="btn btn-success" >Back</a>
+        <hr />
         <?php
         if (isset($_POST['connection_type']) && isset($_POST['resident_no']) &&
             isset($_POST['street']) && isset($_POST['city'])){

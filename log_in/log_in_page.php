@@ -35,6 +35,7 @@
                             <div class="account-pages">
                                 <div class="account-box">
                                     <div class="account-logo-box">
+                                        <h1 style="color: #00CE6F; margin-left: 120px" class="text-uppercase font-bold m-b-5 m-t-50"><b>ENGIZER</b></h1>
                                         <h5 class="text-uppercase font-bold m-b-5 m-t-50">Sign In</h5>
 
                                     </div>
