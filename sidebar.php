@@ -19,11 +19,9 @@ if ($_SESSION['user_type'] == 'customer'){
             <a href="current_connection.php">Current Connection</a>
         </li>
         <li>
-<<<<<<< HEAD
-            <a href="">View Connection Details</a>
-=======
+
             <a href="view_connection.php">View Connection Details</a>
->>>>>>> origin/master
+
         </li>
 
     </ul>
@@ -54,11 +52,10 @@ if ($_SESSION['user_type'] == 'customer'){
     <li>
         <a href="stf_account_setting.php"><i class="fa fa-dashboard fa-3x"></i> Account Settings</a>
     </li>
-<<<<<<< HEAD
 
-    <li>view_conn_details.php
+    <li>
         <a href="#"><i class="fa fa-dashboard fa-3x"></i> Send Notice</a>
-=======
+
     <li>
         <a href="#"><i class="fa fa-sitemap fa-3x"></i> View Details<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
@@ -83,7 +80,7 @@ if ($_SESSION['user_type'] == 'customer'){
                 <a href="notification_history.php">History</a>
             </li>
         </ul>
->>>>>>> origin/master
+
     </li>
 
     <li>
@@ -151,9 +148,6 @@ if ($_SESSION['user_type'] == 'customer'){
         <a href="add_reading.php"><i class="fa fa-dashboard fa-3x"></i> Add Reading</a>
     </li>
 
-    <li>
-        <a href=""><i class="fa fa-dashboard fa-3x"></i> Rates </a>
-    </li>
 
     <?php
 }
