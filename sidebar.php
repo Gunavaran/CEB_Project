@@ -8,6 +8,7 @@ if ($_SESSION['user_type'] == 'customer'){
 <li>
     <a  href="cus_account_setting.php"><i class="fa fa-dashboard fa-3x"></i> Account Settings</a>
 </li>
+
 <li>
     <a href="#"><i class="fa fa-sitemap fa-3x"></i> Connection<span class="fa arrow"></span></a>
     <ul class="nav nav-second-level">
@@ -29,7 +30,7 @@ if ($_SESSION['user_type'] == 'customer'){
 </li>
 
 <li>
-    <a  href="#"><i class="fa fa-dashboard fa-3x"></i> Bills</a>
+    <a  href="customer_view_bill.php"><i class="fa fa-dashboard fa-3x"></i> Bills</a>
 </li>
 
 <li>
@@ -48,7 +49,20 @@ if ($_SESSION['user_type'] == 'customer'){
     <li>
         <a href="stf_account_setting.php"><i class="fa fa-dashboard fa-3x"></i> Account Settings</a>
     </li>
-
+    <li>
+        <a href="#"><i class="fa fa-sitemap fa-3x"></i> View Details<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li>
+                <a href="view_meter_details.php">Meter Details</a>
+            </li>
+            <li>
+                <a href="view_customer_details.php">Customer Details</a>
+            </li>
+            <li>
+                <a href="view_staff_details.php">Staff Details</a>
+            </li>
+        </ul>
+    </li>
     <li>
         <a href="send_notice.php"><i class="fa fa-dashboard fa-3x"></i> Notification <span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
@@ -112,6 +126,15 @@ if ($_SESSION['user_type'] == 'customer'){
             </li>
         </ul>
     </li>
+    <li>
+        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Analysis <span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li>
+                <a href="tabular_analysis.php">Tabular</a>
+            </li>
+        </ul>
+    </li>
+
 
     <?php
 } else if ($_SESSION['user_type'] == 'meter_reader') {

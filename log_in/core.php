@@ -5,7 +5,6 @@
  * Date: 11/7/2017
  * Time: 1:06 AM
  */
-
 ob_start();
 session_start();
 $current_file = $_SERVER['SCRIPT_NAME'];

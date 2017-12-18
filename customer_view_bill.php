@@ -12,38 +12,36 @@ if (logged_in()){
                 </div>
                 <?php
                     include 'connectDB.php';
-                    $result = mysqli_query($link, "SELECT * FROM complain WHERE status = 'pending' ORDER BY report_id DESC");
-                    $result2 = mysqli_query($link, "SELECT * FROM complain WHERE status = 'read' ORDER BY report_id DESC");
+                    $result = mysqli_query($link, "SELECT * FROM bill WHERE status = 'pending' and user_id = '".$_SESSION['user_id']."' ORDER BY bill_id DESC");
+                    $result2 = mysqli_query($link, "SELECT * FROM bill WHERE status = 'paid' and user_id = '".$_SESSION['user_id']."' ORDER BY bill_id DESC");
                 echo "
                 <div class='panel panel-default'>
                     <div class='panel-heading'>
-                        <font size = '5'>Pending Complaints</font>
+                        <font size = '5'>Pending Bills</font>
                     </div>
                     <div class= 'panel-body'>
                         <div class='table-responsive'>
                             <table class='table table-striped table-bordered table-hover'>
-                              <col width='30'>
-                              <col width='10'>
-                              <col width='150'>
-                              <col width='500'>
                               <col width='5'>
+                              <col width='30'>
+                              <col width='30'>
+                              <col width='50'>
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>User id</th>
-                                        <th>Date Time</th>
-                                        <th>Complaint</th>
+                                      <th>Bill ID</th>
+                                      <th>Date</th>
+                                      <th>Units</th>
+                                      <th>Amount</th>
                                     </tr>
                                 </thead>
                                 <tbody>";
                                 while($row = mysqli_fetch_array($result))
                                 {
                                 echo "<tr>";
-                                echo "<td><font size = '2'>" . $row['report_id'] . "</font></td>";
-                                echo "<td><font size = '2'>" . $row['user_id'] . "</font></td>";
+                                echo "<td><font size = '2'>" . $row['bill_id'] . "</font></td>";
                                 echo "<td><font size = '2'>" . $row['date'] . "</font></td>";
-                                echo "<td><font size = '2'>" . $row['message'] . "</font></td>";
-                                echo "<td><a href='read_complaint.php?id=".$row['report_id']."'><button><font size = '2'>Read</font></button></a></td>";
+                                echo "<td><font size = '2'>" . $row['unit'] . "</font></td>";
+                                echo "<td><font size = '2'>" . $row['amount'] . "</font></td>";
                                 echo "</tr>";
                                 }
                                 echo "
@@ -52,31 +50,31 @@ if (logged_in()){
                         </div>
                     </div>
                     <div class='panel-heading'>
-                        <font size = '5'>Read Complaints</font>
+                        <font size = '5'>Paid bills</font>
                     </div>
                     <div class= 'panel-body'>
                         <div class='table-responsive'>
                             <table class='table table-striped table-bordered table-hover'>
+                              <col width='5'>
                               <col width='30'>
-                              <col width='10'>
-                              <col width='150'>
-                              <col width='500'>
+                              <col width='30'>
+                              <col width='50'>
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>User id</th>
-                                        <th>Date Time</th>
-                                        <th>Complaint</th>
+                                      <th>Bill ID</th>
+                                      <th>Date</th>
+                                      <th>Units</th>
+                                      <th>Amount</th>
                                     </tr>
                                 </thead>
                                 <tbody>";
                                 while($row = mysqli_fetch_array($result2))
                                 {
                                 echo "<tr>";
-                                echo "<td><font size = '2'>" . $row['report_id'] . "</font></td>";
-                                echo "<td><font size = '2'>" . $row['user_id'] . "</font></td>";
+                                echo "<td><font size = '2'>" . $row['bill_id'] . "</font></td>";
                                 echo "<td><font size = '2'>" . $row['date'] . "</font></td>";
-                                echo "<td><font size = '2'>" . $row['message'] . "</font></td>";
+                                echo "<td><font size = '2'>" . $row['unit'] . "</font></td>";
+                                echo "<td><font size = '2'>" . $row['amount'] . "</font></td>";
                                 echo "</tr>";
                                 }
                                 echo "
