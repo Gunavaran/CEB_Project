@@ -12,8 +12,8 @@ if (logged_in()){
                 </div>
                 <?php
                     include 'connectDB.php';
-                    $result = mysqli_query($link, "SELECT * FROM bill WHERE status = 'pending' and user_id = '".$_SESSION['user_id']."' ORDER BY bill_id DESC");
-                    $result2 = mysqli_query($link, "SELECT * FROM bill WHERE status = 'paid' and user_id = '".$_SESSION['user_id']."' ORDER BY bill_id DESC");
+                    $result = mysqli_query($link, "SELECT * FROM pending_bills WHERE user_id = '".$_SESSION['user_id']."'");
+                    $result2 = mysqli_query($link, "SELECT * FROM paid_bills WHERE user_id = '".$_SESSION['user_id']."'");
                 echo "
                 <div class='panel panel-default'>
                     <div class='panel-heading'>

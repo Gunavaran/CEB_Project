@@ -18,7 +18,7 @@ if (logged_in()) {
                 </div>
                 <?php
                 $result = mysqli_query($link, "SELECT * FROM connec_req WHERE status = 'Pending' ORDER BY req_id DESC");
-                $result2 = mysqli_query($link, "SELECT * FROM connec_req WHERE status = 'Accept' ORDER BY req_id DESC");
+                $result2 = mysqli_query($link, "SELECT * FROM connec_req WHERE status = 'accept' ORDER BY req_id DESC");
                 $result3 = mysqli_query($link, "SELECT * FROM connec_req WHERE status = 'Reject' ORDER BY req_id DESC");
                 echo "
                 <div class='panel panel-default'>
