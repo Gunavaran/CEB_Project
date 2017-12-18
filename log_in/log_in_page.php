@@ -72,7 +72,7 @@
                                                 $password_md5 = md5($_POST['password']);
 
                                                 if (!empty($username1) && !empty($password)) {
-                                                    $customer_query = "SELECT user_id FROM customer WHERE username = '$username1' AND password = '$password_md5'";
+                                                    $customer_query = "SELECT user_id,city FROM customer WHERE username = '$username1' AND password = '$password_md5'";
                                                     $admin_query = "SELECT user_id FROM staff natural join admin WHERE username = '$username1' AND password = '$password_md5'";
                                                     $reader_query = "SELECT user_id FROM  staff natural join meter_reader WHERE username = '$username1' AND password = '$password_md5'";
                                                     if ($admin_query_run = mysqli_query($link, $admin_query)) {

@@ -15,10 +15,10 @@ if ($_SESSION['user_type'] == 'customer'){
             <a href="connection_request.php">Request Connection</a>
         </li>
         <li>
-            <a href="#">Current Connection</a>
+            <a href="current_connection.php">Current Connection</a>
         </li>
         <li>
-            <a href="#">View Connection Details</a>
+            <a href="view_connection.php">View Connection Details</a>
         </li>
 
     </ul>
@@ -33,7 +33,7 @@ if ($_SESSION['user_type'] == 'customer'){
 </li>
 
 <li>
-    <a  href="#"><i class="fa fa-dashboard fa-3x"></i> Notifications</a>
+    <a  href="notice.php"><i class="fa fa-dashboard fa-3x"></i> Notifications</a>
 </li>
 
 <li>
@@ -50,7 +50,15 @@ if ($_SESSION['user_type'] == 'customer'){
     </li>
 
     <li>
-        <a href="#"><i class="fa fa-dashboard fa-3x"></i> Send Notice</a>
+        <a href="send_notice.php"><i class="fa fa-dashboard fa-3x"></i> Notification <span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li>
+                <a href="send_notice.php">Send</a>
+            </li>
+            <li>
+                <a href="notification_history.php">History</a>
+            </li>
+        </ul>
     </li>
 
     <li>
