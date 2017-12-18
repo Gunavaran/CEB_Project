@@ -16,10 +16,14 @@ if ($_SESSION['user_type'] == 'customer'){
             <a href="connection_request.php">Request Connection</a>
         </li>
         <li>
-            <a href="#">Current Connection</a>
+            <a href="current_connection.php">Current Connection</a>
         </li>
         <li>
+<<<<<<< HEAD
             <a href="">View Connection Details</a>
+=======
+            <a href="view_connection.php">View Connection Details</a>
+>>>>>>> origin/master
         </li>
 
     </ul>
@@ -34,7 +38,7 @@ if ($_SESSION['user_type'] == 'customer'){
 </li>
 
 <li>
-    <a  href="#"><i class="fa fa-dashboard fa-3x"></i> Notifications</a>
+    <a  href="notice.php"><i class="fa fa-dashboard fa-3x"></i> Notifications</a>
 </li>
 
 <li>
@@ -50,9 +54,36 @@ if ($_SESSION['user_type'] == 'customer'){
     <li>
         <a href="stf_account_setting.php"><i class="fa fa-dashboard fa-3x"></i> Account Settings</a>
     </li>
+<<<<<<< HEAD
 
     <li>view_conn_details.php
         <a href="#"><i class="fa fa-dashboard fa-3x"></i> Send Notice</a>
+=======
+    <li>
+        <a href="#"><i class="fa fa-sitemap fa-3x"></i> View Details<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li>
+                <a href="view_meter_details.php">Meter Details</a>
+            </li>
+            <li>
+                <a href="view_customer_details.php">Customer Details</a>
+            </li>
+            <li>
+                <a href="view_staff_details.php">Staff Details</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="send_notice.php"><i class="fa fa-dashboard fa-3x"></i> Notification <span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li>
+                <a href="send_notice.php">Send</a>
+            </li>
+            <li>
+                <a href="notification_history.php">History</a>
+            </li>
+        </ul>
+>>>>>>> origin/master
     </li>
 
     <li>
@@ -103,9 +134,6 @@ if ($_SESSION['user_type'] == 'customer'){
         <ul class="nav nav-second-level">
             <li>
                 <a href="tabular_analysis.php">Tabular</a>
-            </li>
-            <li>
-                <a href="graphical_analysis.php">Analysis</a>
             </li>
         </ul>
     </li>
