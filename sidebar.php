@@ -105,6 +105,18 @@ if ($_SESSION['user_type'] == 'customer'){
             </li>
         </ul>
     </li>
+    <li>
+        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Analysis <span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li>
+                <a href="tabular_analysis.php">Tabular</a>
+            </li>
+            <li>
+                <a href="graphical_analysis.php">Analysis</a>
+            </li>
+        </ul>
+    </li>
+
 
     <?php
 } else if ($_SESSION['user_type'] == 'meter_reader') {

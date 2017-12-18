@@ -43,7 +43,7 @@ if (logged_in()) {
                             $street = $row['street'];
                             $city = $row['city'];
 
-                            $address = $resid_no . " " . $street . ' ' . $city;
+                            $address = $resid_no . ", " . $street . ', ' . $city;
                             ?>
                             <tbody>
                             <tr>
